@@ -1,7 +1,10 @@
+require("dotenv").config({path: __dirname + '/.env.dev'})
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
 const helmet = require('helmet')
+//Importacion de las Rutas
+const userRouter = require('./routes/user.routes')
 
 //Conexion a la base de Datos
 const db = require("./config/dbConnection")
@@ -13,6 +16,9 @@ app.use(express.json())
 app.use(cors())
 app.use(morgan("common"))
 app.use(helmet())
+
+//End points
+app.use('/user',userRouter)
 
 const port = process.env.PORT || 8000
 
