@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 
 module.exports = {
     //middleware para comprobar la autenticacion de un usuario que quiere acceder a la aplicacion usando un token
-    auth : async function (req,res,next){
+    async auth (req,res,next){
         try{
             const [ Bearer, token ] = req.headers.authorization.split(" ")
             if(!token) throw new Error("no esta autorizado para ingresar")

@@ -40,6 +40,11 @@ const userSchema = new Schema ({
         minlength: 10,
         maxlength: 13,
         trim: true
+    },
+    //La billetera queda como una propiedad del usuario
+    wallet:{
+        type: Number,
+        default: 0
     }
 },{
     timestamps: true

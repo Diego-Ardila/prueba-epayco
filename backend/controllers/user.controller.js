@@ -37,9 +37,22 @@ module.exports = {
         process.env.SECRET_KEY,
         {expiresIn: 60*60*24}
       )
-      res.status(200).json({token, userId: user._id})
+      res.status(200).json({token, user})
     }catch(err){
       res.status(400).json(err.message)
     }
   },
+  //Controlador que se encarga de recargar la billetera
+  async updateWallet(req,res) {
+      try{
+          const {userId} = req
+          const {value} = req.body
+          const user = await User.findById(userId)
+          user.wallet += parseInt(value)
+          user.save({validateBeforeSave: false})
+          res.status(200).json(user)
+      }catch(err){
+          res.status(400).json(err.message)
+      }
+  }
 } 
