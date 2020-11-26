@@ -8,7 +8,8 @@ router.route('/').post(userController.createUser)
 router.route('/login').post(userController.login)
 //Ruta para recargar la Billetera
 router.route('/').put(auth, userController.updateWallet)
-
+//Ruta para consultar el saldo
+router.route('/').get(auth, userController.getWallet)
 
 
 module.exports = router

@@ -54,5 +54,21 @@ module.exports = {
       }catch(err){
           res.status(400).json(err.message)
       }
+  },
+//Controlador que se encargara de Brindar el saldo de su billetera al cliente
+  async getWallet(req,res){
+    try{
+      const {userId} = req
+      const {phoneNumber, document} = req.body
+      const user = await User.findById(userId)
+      //Validaciones con la informacion recibida sobre el Documento y Numero Celular para que 
+      //coincida con la guardada en la BD
+      if(user.phoneNumber !== phoneNumber && user.document !== document) throw new Error('El numero Celular y el Document no coinciden')
+      if(user.phoneNumber !== phoneNumber) throw new Error('El numero Celular no coincide')
+      if(user.document !== document) throw new Error('El documento de identificacion no coincide')
+      res.status(200).json(user.wallet)
+    }catch(err){
+      res.status(400).json(err.message)
+    }
   }
 } 
