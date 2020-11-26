@@ -15,6 +15,11 @@ const purchaseSchema = new Schema ({
     userId:{
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    //Variable que ayuda a verificar que la compra ya este pagada para que el cliente no pague varias veces la misma compra
+    approved:{
+        type: Boolean,
+        default: false
     }
 },{
     timestamps: true

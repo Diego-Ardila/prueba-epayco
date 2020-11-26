@@ -49,7 +49,7 @@ module.exports = {
           const {value} = req.body
           const user = await User.findById(userId)
           user.wallet += parseInt(value)
-          user.save({validateBeforeSave: false})
+          await user.save({validateBeforeSave: false})
           res.status(200).json(user)
       }catch(err){
           res.status(400).json(err.message)
