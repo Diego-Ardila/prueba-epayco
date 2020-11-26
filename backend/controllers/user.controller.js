@@ -14,7 +14,7 @@ module.exports = {
         process.env.SECRET_KEY,
         {expiresIn: 60*60*24}
       )
-      res.status(200).json(token)
+      res.status(200).json({token, user})
     }catch(err){
         res.status(400).json(err.message)
       

@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from "react-router-dom";
 import Header from './pages/Header';
+import Home from './pages/Home';
+import Register from './pages/Register';
+import Login from './pages/Login';
 
 function PrivateRoute(props){
   const history = useHistory()
@@ -19,6 +22,12 @@ function App() {
   return (
     <Router>
       <Header/>
+      <Switch>
+          <PrivateRoute exact path="/home" component={Home} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Redirect from="*" to="/home" />
+      </Switch>
     </Router>
   );
 }

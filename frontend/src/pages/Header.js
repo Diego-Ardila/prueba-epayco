@@ -18,7 +18,7 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/login">Login Usuario</Nav.Link>
-            <Nav.Link href="/registro">Nuevo Usuario</Nav.Link>
+            <Nav.Link href="/register">Nuevo Usuario</Nav.Link>
             <Nav.Link href="/compras">Compras</Nav.Link>
             <Nav.Link href="/wallet">Billetera</Nav.Link>
           </Nav>
