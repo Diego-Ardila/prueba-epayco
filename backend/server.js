@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const helmet = require('helmet')
 //Importacion de las Rutas
 const userRouter = require('./routes/user.routes')
+const purchaseRouter = require('./routes/purchase.routes')
 
 //Conexion a la base de Datos
 const db = require("./config/dbConnection")
@@ -18,7 +19,8 @@ app.use(morgan("common"))
 app.use(helmet())
 
 //End points
-app.use('/user',userRouter)
+app.use('/user', userRouter)
+app.use('/purchase', purchaseRouter)
 
 const port = process.env.PORT || 8000
 

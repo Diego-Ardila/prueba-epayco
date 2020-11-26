@@ -1,4 +1,4 @@
-const { Schema , model, models } = require("mongoose")
+const { Schema , model, models } = require('mongoose')
 
 
 //Esquema para la creacion de la coleccion de usuarios en la base de datos
@@ -27,7 +27,7 @@ const userSchema = new Schema ({
                     return false
                 }
             },
-            message:"El E-mail ya existe"
+            message:'El E-mail ya existe'
         }
     },
     password: {
@@ -45,6 +45,13 @@ const userSchema = new Schema ({
     wallet:{
         type: Number,
         default: 0
+    },
+    //Relacion entre la entidad de Usuario y la entidad de Compras de uno(usuario) a muchas(compras)
+    purchase:{
+        type:[{
+            type: Schema.Types.ObjectId,
+            ref: 'Purchase'
+        }]
     }
 },{
     timestamps: true
@@ -52,6 +59,6 @@ const userSchema = new Schema ({
 
 
 
-const User = new model("User", userSchema)
+const User = new model('User', userSchema)
 
 module.exports = User

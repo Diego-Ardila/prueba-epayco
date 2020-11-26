@@ -1,6 +1,6 @@
 const User = require('../models/user.model')
-const jwt = require("jsonwebtoken")
-const bcrypt = require("bcrypt")
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 
 module.exports = {
 //Controlador que maneja la logica para crear un usuario y guardarlo en la base de datos
@@ -26,11 +26,11 @@ module.exports = {
       const {email, password} = req.body
       const user= await User.findOne({email})
       if(!user){
-        throw new Error("El usuario es invalido")
+        throw new Error('El usuario es invalido')
       }
       const isValid= await bcrypt.compare(password, user.password)
       if(!isValid) {
-        throw new Error("La contraseña es invalida")
+        throw new Error('La contraseña es invalida')
       }
       const token= jwt.sign(
         {id: user._id},
@@ -42,7 +42,7 @@ module.exports = {
       res.status(400).json(err.message)
     }
   },
-  //Controlador que se encarga de recargar la billetera
+//Controlador que se encarga de recargar la billetera
   async updateWallet(req,res) {
       try{
           const {userId} = req

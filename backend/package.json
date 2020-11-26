@@ -14,6 +14,7 @@
     "yarn": ">=1.22"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -21,7 +22,8 @@
     "helmet": "^4.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.16",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "n-digit-token": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
