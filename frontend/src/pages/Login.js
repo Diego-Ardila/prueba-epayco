@@ -7,18 +7,19 @@ import {login} from '../utils/httpRequests';
 import swal from 'sweetalert';
 import {Link, useHistory} from 'react-router-dom';
 
-//Variable que almacena url del logo
-const logo= "https://res.cloudinary.com/sharedbox/image/upload/v1603386505/Parking%20Alarcon/epayco_elyho0.png"
-
-function Login() {
-    const history = useHistory()
-    //Destructuring de el objeto que nos proporciona la libreria react-hook-form para el manejo del formulario
+    //Variable que almacena url del logo
+    const logo= "https://res.cloudinary.com/sharedbox/image/upload/v1603386505/Parking%20Alarcon/epayco_elyho0.png"
 
     //validaciones del formulario por medio de Yup
     const formSchema = Yup.object().shape({
         email: Yup.string().required("campo requerido"),
         password: Yup.string().required("campo requerido")
     })
+
+function Login() {
+    const history = useHistory()
+    //Destructuring de el objeto que nos proporciona la libreria react-hook-form para el manejo del formulario
+
     let { register, handleSubmit, errors, formState:{isSubmitting} } = useForm({
         resolver: yupResolver(formSchema)
       });

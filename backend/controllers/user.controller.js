@@ -25,9 +25,11 @@ module.exports = {
     try{
       const {email, password} = req.body
       const user= await User.findOne({email})
+      //Validar si el usuario se encuentra ya registrado
       if(!user){
         throw new Error('El usuario es invalido')
       }
+      //Desencriptar y validar contraseña
       const isValid= await bcrypt.compare(password, user.password)
       if(!isValid) {
         throw new Error('La contraseña es invalida')
@@ -46,11 +48,15 @@ module.exports = {
   async updateWallet(req,res) {
       try{
           const {userId} = req
-          const {value} = req.body
+          const {value, document, phoneNumber} = req.body
           const user = await User.findById(userId)
+          //Validaciones de informacion suministrada por el cliente para autenticar identidad
+          if(user.document != document && user.phoneNumber != phoneNumber) throw new Error('El Numero de documento y de Celular no coinciden')
+          if(user.document != document) throw new Error('El Numero de documento no coincide')
+          if(user.phoneNumber != phoneNumber) throw new Error('El Numero de Celular no coincide')
           user.wallet += parseInt(value)
           await user.save({validateBeforeSave: false})
-          res.status(200).json(user)
+          res.status(200).json({user})
       }catch(err){
           res.status(400).json(err.message)
       }
@@ -59,7 +65,7 @@ module.exports = {
   async getWallet(req,res){
     try{
       const {userId} = req
-      const {phoneNumber, document} = req.body
+      const {phoneNumber, document} = req.query
       const user = await User.findById(userId)
       //Validaciones con la informacion recibida sobre el Documento y Numero Celular para que 
       //coincida con la guardada en la BD
