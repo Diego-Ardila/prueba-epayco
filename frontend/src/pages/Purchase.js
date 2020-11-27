@@ -3,6 +3,7 @@ import {Button, Container, Card, Row, Image, Col } from 'react-bootstrap';
 import ConfirmationForm from '../components/ConfirmationForm';
 import PurchaseForm from '../components/PurchaseForm';
 
+//Componente que Maneja tanto la creacion de una compra como su confirmacion
 function Purchase(){
     //Estados que se encargaran de condicionar el renderizado de los formularios, segun el que se elija
     const [purchase, setPurchase] = useState(false)

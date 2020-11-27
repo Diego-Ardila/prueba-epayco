@@ -12,7 +12,7 @@ const formSchema = Yup.object().shape({
     token: Yup.number().required("Campo Requerido").typeError('Debes ingresar solo numeros').test('len', 'El token debe contener 6 numeros', val => val && val.toString().length === 6 ),
 })
 
-
+//Componente que Renderiza el formulario de Confirmacion de una compra
 function ConfirmationForm({setConfirmation}) {
     let { register, handleSubmit, errors, formState:{isSubmitting} } = useForm({
         resolver: yupResolver(formSchema)

@@ -1,4 +1,5 @@
 import axios from "axios";
+//Listado donde se encuentran todas las peticiones HTTP por medio de la libreria axios
 
 export const createUser= async (data) => {
     try{

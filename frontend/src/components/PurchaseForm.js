@@ -11,7 +11,7 @@ const formSchema = Yup.object().shape({
     value: Yup.number().required("Campo Requerido").typeError('Debes ingresar solo numeros'),
 })
 
-
+//Componente que Renderiza el formulario de compra
 function PurchaseForm({setPurchase, setConfirmation}) {
 
     let { register, handleSubmit, errors, formState:{isSubmitting} } = useForm({

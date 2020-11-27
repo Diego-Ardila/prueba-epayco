@@ -12,7 +12,7 @@ const formSchema = Yup.object().shape({
     phoneNumber: Yup.number().required("Campo Requerido").typeError('Debes ingresar solo numeros').test('len', 'Debes ingresar al menos 10 numeros', val => val && val.toString().length >= 10 ),
 })
 
-
+//Componente que renderiza el formulario que solicita el saldo de lo que tiene un usuario en la billetera
 function SaldoForm({setSaldo}) {
     let { register, handleSubmit, errors, formState:{isSubmitting} } = useForm({
         resolver: yupResolver(formSchema)

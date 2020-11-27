@@ -13,7 +13,7 @@ const formSchema = Yup.object().shape({
     phoneNumber: Yup.number().required("Campo Requerido").typeError('Debes ingresar solo numeros').test('len', 'Debes ingresar al menos 10 numeros', val => val && val.toString().length >= 10 ),
 })
 
-
+//Componente que renderiza el formulario de Recargar la Billetera
 function RechargeForm({setRecharge}) {
     let { register, handleSubmit, errors, formState:{isSubmitting} } = useForm({
         resolver: yupResolver(formSchema)

@@ -3,6 +3,7 @@ import {Button, Container, Card, Row, Image, Col } from 'react-bootstrap';
 import RechargeForm from '../components/RechargeForm';
 import SaldoForm from '../components/SaldoForm';
 
+//Componente que maneja tanto la recarga como la solicitud de saldo de una billetera
 function Wallet(){
     //Estados que se encargaran de condicionar el renderizado de los formularios, segun el que se elija
     const [recharge, setRecharge] = useState(false)
