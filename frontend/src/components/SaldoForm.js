@@ -1,5 +1,4 @@
 import React from "react";
-import {useHistory} from 'react-router-dom';
 import * as Yup from "yup";
 import { Container, Form, Button, Col, Spinner, Row } from "react-bootstrap";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -15,7 +14,6 @@ const formSchema = Yup.object().shape({
 
 
 function SaldoForm({setSaldo}) {
-    const history = useHistory()
     let { register, handleSubmit, errors, formState:{isSubmitting} } = useForm({
         resolver: yupResolver(formSchema)
     });
@@ -48,7 +46,7 @@ function SaldoForm({setSaldo}) {
                     </Form.Group> 
                     <Form.Group >
                         <Form.Label  style={{color: "white"}}>Numero Celular</Form.Label>
-                        <Form.Control ref={register} name="phoneNumber" type="tel" placeholder="Ingresa tu Numero Celular" className={ errors.phoneNumber ? "is-invalid" : null}  />
+                        <Form.Control ref={register} name="phoneNumber" type="number" placeholder="Ingresa tu Numero Celular" className={ errors.phoneNumber ? "is-invalid" : null}  />
                         { errors.phoneNumber && <div style={{color:"white"}} className="error-message">{errors.phoneNumber.message}</div>}
                     </Form.Group> 
                     <Form.Row className="justify-content-center mt-3">

@@ -11,7 +11,7 @@ module.exports = {
             req.userId = id
             next()
         }catch(err){
-            res.status(401).json({message: err.message})
+            res.status(401).json(err.message)
         }
     }
 }

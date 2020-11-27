@@ -8,7 +8,7 @@ import swal from 'sweetalert';
 
 //Configuracion de Yup, libreria encargada de ejecutar las validaciones del formulario
 const formSchema = Yup.object().shape({   
-    value: Yup.number().required("Campo Requerido"),
+    value: Yup.number().required("Campo Requerido").typeError('Debes ingresar solo numeros'),
 })
 
 

@@ -9,7 +9,7 @@ const purchaseSchema = new Schema ({
     },
     //Token que se genera para enviar por correo y confirmar la compra
     token:{
-        type: String,
+        type: Number,
         required: true
     },
     userId:{

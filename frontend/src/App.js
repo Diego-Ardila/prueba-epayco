@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from "react-router-dom";
 import Header from './pages/Header';
 import Home from './pages/Home';
@@ -30,7 +30,7 @@ function App() {
           <PrivateRoute exact path="/home" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <Redirect from="*" to="/home" />
+          <Redirect from="*" to="/login" />
       </Switch>
     </Router>
   );

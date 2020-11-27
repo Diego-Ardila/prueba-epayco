@@ -69,9 +69,9 @@ module.exports = {
       const user = await User.findById(userId)
       //Validaciones con la informacion recibida sobre el Documento y Numero Celular para que 
       //coincida con la guardada en la BD
-      if(user.phoneNumber !== phoneNumber && user.document !== document) throw new Error('El numero Celular y el Document no coinciden')
-      if(user.phoneNumber !== phoneNumber) throw new Error('El numero Celular no coincide')
-      if(user.document !== document) throw new Error('El documento de identificacion no coincide')
+      if(user.phoneNumber !== parseInt(phoneNumber) && user.document !== parseInt(document)) throw new Error('El numero Celular y el Document no coinciden')
+      if(user.phoneNumber !== parseInt(phoneNumber)) throw new Error('El numero Celular no coincide')
+      if(user.document !== parseInt(document)) throw new Error('El documento de identificacion no coincide')
       res.status(200).json(user.wallet)
     }catch(err){
       res.status(400).json(err.message)

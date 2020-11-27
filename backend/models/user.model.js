@@ -10,7 +10,7 @@ const userSchema = new Schema ({
         trim: true
     },
     document:{
-        type: String,
+        type: Number,
         required: true
     },
     email:{
@@ -35,13 +35,13 @@ const userSchema = new Schema ({
         required: true,
     },
     phoneNumber: {
-        type: String,
+        type: Number,
         required: true,
         minlength: 10,
         maxlength: 13,
         trim: true
     },
-    //La billetera queda como una propiedad del usuario
+    //La billetera queda como una propiedad de la coleccion usuario
     wallet:{
         type: Number,
         default: 0

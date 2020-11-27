@@ -1,5 +1,4 @@
 import React from "react";
-import {useHistory} from 'react-router-dom';
 import * as Yup from "yup";
 import { Container, Form, Button, Col, Spinner, Row } from "react-bootstrap";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,14 +8,13 @@ import swal from 'sweetalert';
 
 //Configuracion de Yup, libreria encargada de ejecutar las validaciones del formulario
 const formSchema = Yup.object().shape({   
-    value: Yup.number().required("Campo Requerido"),
+    value: Yup.number().required("Campo Requerido").typeError('Debes ingresar solo numeros'),
     document: Yup.number().required("Campo Requerido").typeError('Debes ingresar solo numeros'),
     phoneNumber: Yup.number().required("Campo Requerido").typeError('Debes ingresar solo numeros').test('len', 'Debes ingresar al menos 10 numeros', val => val && val.toString().length >= 10 ),
 })
 
 
 function RechargeForm({setRecharge}) {
-    const history = useHistory()
     let { register, handleSubmit, errors, formState:{isSubmitting} } = useForm({
         resolver: yupResolver(formSchema)
     });
@@ -54,7 +52,7 @@ function RechargeForm({setRecharge}) {
                     </Form.Group> 
                     <Form.Group >
                         <Form.Label  style={{color: "white"}}>Numero Celular</Form.Label>
-                        <Form.Control ref={register} name="phoneNumber" type="tel" placeholder="Ingresa tu Numero Celular" className={ errors.phoneNumber ? "is-invalid" : null}  />
+                        <Form.Control ref={register} name="phoneNumber" type="number" placeholder="Ingresa tu Numero Celular" className={ errors.phoneNumber ? "is-invalid" : null}  />
                         { errors.phoneNumber && <div style={{color:"white"}} className="error-message">{errors.phoneNumber.message}</div>}
                     </Form.Group> 
                     <Form.Row className="justify-content-center mt-3">

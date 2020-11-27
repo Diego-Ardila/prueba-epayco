@@ -58,7 +58,7 @@ function Register() {
                     </Form.Group> 
                     <Form.Group >
                         <Form.Label  style={{color: "white"}}>Numero Celular</Form.Label>
-                        <Form.Control ref={register} name="phoneNumber" type="tel" placeholder="Ingresa tu Numero Celular" className={ errors.phoneNumber ? "is-invalid" : null}  />
+                        <Form.Control ref={register} name="phoneNumber" type="number" placeholder="Ingresa tu Numero Celular" className={ errors.phoneNumber ? "is-invalid" : null}  />
                         { errors.phoneNumber && <div style={{color:"white"}} className="error-message">{errors.phoneNumber.message}</div>}
                     </Form.Group> 
                     <Form.Group >
