@@ -19,7 +19,7 @@ function Header() {
           <Nav className="mr-auto">
             <Nav.Link href="/login">Login Usuario</Nav.Link>
             <Nav.Link href="/register">Nuevo Usuario</Nav.Link>
-            <Nav.Link href="/compras">Compras</Nav.Link>
+            <Nav.Link href="/purchase">Compras</Nav.Link>
             <Nav.Link href="/wallet">Billetera</Nav.Link>
           </Nav>
           <Nav className="justify-content-end">

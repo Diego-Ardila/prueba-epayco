@@ -34,7 +34,7 @@ module.exports = {
             const purchase = await Purchase.findById(purchaseId)
             if(!purchase) throw new Error('Id de compra no valido')
             //Validando el token enviado con el almacenado en la entidad de la compra
-            if(token !== purchase.token) throw new Error('El token no es valido')
+            if(token.toString() !== purchase.token) throw new Error('El token no es valido')
             //Validando que esa compra solo se pague una vez
             if(purchase.approved) throw new Error('Esta compra ya fue pagada')
             //Si pasa todas las validaciones se actualiza su estado a aprovado y se descuenta de la billetera del cliente
@@ -43,7 +43,7 @@ module.exports = {
             const user = await User.findById(userId)
             user.wallet -= purchase.value
             await user.save({validateBeforeSave: false})
-            res.status(200).json({purchase, user})
+            res.status(200).json("compra aprobada")
         }catch(err){
             res.status(400).json(err.message)
         }

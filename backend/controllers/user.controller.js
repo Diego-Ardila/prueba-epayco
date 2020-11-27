@@ -51,8 +51,8 @@ module.exports = {
           const {value, document, phoneNumber} = req.body
           const user = await User.findById(userId)
           //Validaciones de informacion suministrada por el cliente para autenticar identidad
-          if(user.document != document && user.phoneNumber != phoneNumber) throw new Error('El Numero de documento y de Celular no coinciden')
-          if(user.document != document) throw new Error('El Numero de documento no coincide')
+          if(user.document !== document && user.phoneNumber !== phoneNumber) throw new Error('El Numero de documento y de Celular no coinciden')
+          if(user.document !== document) throw new Error('El Numero de documento no coincide')
           if(user.phoneNumber != phoneNumber) throw new Error('El Numero de Celular no coincide')
           user.wallet += parseInt(value)
           await user.save({validateBeforeSave: false})

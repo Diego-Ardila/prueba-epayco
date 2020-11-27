@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Wallet from './pages/Wallet';
+import Purchase from './pages/Purchase';
 
 function PrivateRoute(props){
   const history = useHistory()
@@ -25,6 +26,7 @@ function App() {
       <Header/>
       <Switch>
           <PrivateRoute exact path="/wallet" component={Wallet} />
+          <PrivateRoute exact path="/purchase" component={Purchase} />
           <PrivateRoute exact path="/home" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />

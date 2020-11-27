@@ -66,3 +66,41 @@ export const getWallet= async (data) => {
         throw err
     }
 }
+
+export const createPurchase= async (data) => {
+    const token = localStorage.getItem('token')
+    try{
+        const response = await axios({
+            method:"POST",
+            baseURL: process.env.REACT_APP_SERVER_URL,
+            url:`/purchase`,
+            headers:{
+                Authorization:`Bearer ${token}`
+            },
+            data
+        })
+        return response.data
+    }
+    catch(err){
+        throw err
+    }
+}
+
+export const confirmation= async (data) => {
+    const token = localStorage.getItem('token')
+    try{
+        const response = await axios({
+            method:"PUT",
+            baseURL: process.env.REACT_APP_SERVER_URL,
+            url:`/purchase`,
+            headers:{
+                Authorization:`Bearer ${token}`
+            },
+            data
+        })
+        return response.data
+    }
+    catch(err){
+        throw err
+    }
+}
