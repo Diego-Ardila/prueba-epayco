@@ -69,7 +69,7 @@ function Login() {
                 <Form.Row className="justify-content-center mt-3">
                     <Col className="col-lg-6 text-center">
                         {isSubmitting ? <Col className="col-lg-6 text-center"><Spinner animation="border" variant="warning" size="xl" /></Col>  : null}
-                        <Button disabled={isSubmitting} variant="outline-light" type="submit">
+                        <Button disabled={isSubmitting} variant="outline-warning" type="submit">
                          {!isSubmitting ? "Entrar" : "...Cargando"}
                         </Button>
                     </Col>

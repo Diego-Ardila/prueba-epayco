@@ -52,7 +52,7 @@ function SaldoForm({setSaldo}) {
                     <Form.Row className="justify-content-center mt-3">
                     <Col className="col-lg-6 text-center">
                     {isSubmitting ? <Col className="col-lg-6 text-center"><Spinner animation="border" variant="warning" size="xl" /></Col>  : null}
-                        <Button variant="outline-light" disabled={isSubmitting} className="mt-3" type="submit">
+                        <Button variant="outline-warning" disabled={isSubmitting} className="mt-3" type="submit">
                          {!isSubmitting ? "Enviar" : "...Cargando"}
                         </Button>
                     </Col>

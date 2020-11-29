@@ -10,13 +10,13 @@ function Home(){
             <h3 style={{fontFamily:"sans-serif", fontWeight:"bold",color:"GrayText"}}>Wallet</h3>
             <Card className="bg-dark mt-2 p-3">
                 <Row className="justify-content-center">
-                    <Button className=" col-lg-5 m-3 " variant="outline-light" onClick={()=> history.push('/purchase')}>Compras</Button>
+                    <Button className=" col-lg-5 m-3 " variant="outline-warning" onClick={()=> history.push('/purchase')}>Compras</Button>
                 </Row>
                 <Row className="justify-content-center">
-                    <Button className="col-lg-5 m-3" variant="outline-light" onClick={() => history.push('/wallet')}>Mi Billetera</Button>
+                    <Button className="col-lg-5 m-3" variant="outline-warning" onClick={() => history.push('/wallet')}>Mi Billetera</Button>
                 </Row>
                 <Row className="justify-content-center">
-                    <Button className="col-lg-5 m-3" variant="outline-light" onClick={() => history.push('/logout')}>Cerrar Sesion</Button>
+                    <Button className="col-lg-5 m-3" variant="outline-warning" onClick={() => history.push('/logout')}>Cerrar Sesion</Button>
                 </Row>
             </Card>
         </Container>
