@@ -6,12 +6,14 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Wallet from './pages/Wallet';
 import Purchase from './pages/Purchase';
+import swal from 'sweetalert';
 
 function PrivateRoute(props){
   const history = useHistory()
   useEffect(()=>{
     const token = localStorage.getItem("token")
     if(!token){
+      swal("Error","No tienes acceso, por favor Registrate primero","error")
       history.push("/login")
     }
   },[])
