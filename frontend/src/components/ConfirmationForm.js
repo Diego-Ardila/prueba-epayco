@@ -52,7 +52,11 @@ function ConfirmationForm({setConfirmation}) {
                     <Form.Row className="justify-content-center mt-3">
                     <Col className="col-lg-6 text-center">
                     {isSubmitting ? <Col className="col-lg-6 text-center"><Spinner animation="border" variant="warning" size="xl" /></Col>  : null}
+<<<<<<< HEAD
+                        <Button variant="outline-warning" disabled={isSubmitting} className="mt-3" type="submit">
+=======
                         <Button variant="outline-light" disabled={isSubmitting} className="mt-3" type="submit">
+>>>>>>> 11af1804c935fd63c165fe4c9de4207ad1dbd385
                          {!isSubmitting ? "Enviar" : "...Cargando"}
                         </Button>
                     </Col>

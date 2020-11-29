@@ -19,7 +19,7 @@ module.exports = {
             user.purchase.push(purchase._id)
             await user.save({validateBeforeSave: false})
         //Envio del email que contiene el token
-            //await purchaseConfirmation(token, user)
+            await purchaseConfirmation(token, user)
             res.status(200).json(purchase)
         }catch(err){
             res.status(400).json(err.message)
